@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="notes">
+        <item>@raw/sound_10_himi</item>
+        <item>@raw/sound_09_hire</item>
+        <item>@raw/sound_08_hido</item>
+        <item>@raw/sound_07_shi</item>
+        <item>@raw/sound_06_ra</item>
+        <item>@raw/sound_05_so</item>
+        <item>@raw/sound_04_fa</item>
+        <item>@raw/sound_03_mi</item>
+        <item>@raw/sound_02_re</item>
+        <item>@raw/sound_01_do</item>
+
+
+    </integer-array>
+</resources>
