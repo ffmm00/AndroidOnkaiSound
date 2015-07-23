@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     private float[] acValues = new float[3];
 
     private int nowScale = 0;
-    private int oldScale = 9;
+    private int oldScale = 8;
     private int nowAzimuth = 0;
     private int oldAzimuth = 0;
 
@@ -49,8 +49,8 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     @Override
     protected void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, mAccelerometer, 100000);
-        mSensorManager.registerListener(this, mMagField, 100000);
+        mSensorManager.registerListener(this, mAccelerometer, 120000);
+        mSensorManager.registerListener(this, mMagField, 120000);
 
         TypedArray notes = getResources().obtainTypedArray(R.array.notes);
         mplayer = new MediaPlayer[notes.length()];
@@ -103,8 +103,44 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
             strBuild.append("\n");
             nowScale = rad2Deg(orValues[1]) / 10;
             strBuild.append("index:" + nowScale);
+            strBuild.append("\n");
+            strBuild.append("音階：");
+
+            switch (nowScale) {
+                case 0:
+                    strBuild.append("高いレ");
+                    break;
+                case 1:
+                    strBuild.append("高いド");
+                    break;
+                case 2:
+                    strBuild.append("シ");
+                    break;
+                case 3:
+                    strBuild.append("ラ");
+                    break;
+                case 4:
+                    strBuild.append("ソ");
+                    break;
+                case 5:
+                    strBuild.append("ファ");
+                    break;
+                case 6:
+                    strBuild.append("ミ");
+                    break;
+                case 7:
+                    strBuild.append("レ");
+                    break;
+                case 8:
+                    strBuild.append("ド");
+                    break;
+                case 9:
+                    break;
+            }
+
             nowAzimuth = rad2Deg(orValues[0]);
             text01.setText(strBuild.toString());
+
 
             if (nowScale != oldScale) {
                 playSound(nowScale);
